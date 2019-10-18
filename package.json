@@ -1,0 +1,22 @@
+{
+  "name": "must-have",
+  "version": "1.0.0",
+  "description": "Uni project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinddM/love-my-movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinddM/love-my-movies/issues"
+  },
+  "homepage": "https://github.com/LinddM/love-my-movies#readme",
+  "dependencies": {
+    "xmlhttprequest": "1.8.0"
+  }
+}
