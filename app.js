@@ -1,18 +1,22 @@
-var data = "{}";
+const http = require('http')
+const fs = require('fs')
 
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+const hostname = '127.0.0.1'
+const port = 3000
 
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
+fs.readFile('templates/index.html', (err, html) => {
+    if(err){
+        throw err
+    }
 
-xhr.open("GET", "https://api.themoviedb.org/3/movie/336843?language=en-US&api_key=");
-
-xhr.send(data);
-
-// manejar esto con 
-// https://developers.themoviedb.org/3/getting-started/introduction
+    const server = http.createServer((req, res) => {
+        res.statusCode = 200;
+        res.setHeader('Content-type', 'text/html');
+        res.write(html)
+        res.end()
+    })
+    
+    server.listen(port, hostname, () => {
+        console.log('Server started on port ' + port)
+    })
+})
