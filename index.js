@@ -60,7 +60,19 @@ app.patch('/movie/:movie/:vote', function (req, res) {
         console.log(reply)
         client.set(movie, parseInt(reply) + parseInt(vote), redis.print);
         
-        res.status(200).send(true)
+        res.status(200).send((parseInt(reply) + parseInt(vote)).toString())
+    })
+})
+
+app.get('/:movie/vote', function (req, res) {
+    const movie = req.params.movie
+    client.get(movie, (err, reply) => {
+        if (err) {
+            console.error(err)
+            res.status(500).send(false)
+        }
+        
+        res.status(200).send(reply)
     })
 })
 

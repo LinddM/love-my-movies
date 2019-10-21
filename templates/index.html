@@ -17,11 +17,12 @@
             const host = 'localhost'
             const port = 3000
             function vote(movieID, q) {
-                var req = new XMLHttpRequest();
+                const req = new XMLHttpRequest();
                 req.open('PATCH', `http://${host}:${port}/movie/${movieID}/${q}`, false); 
                 req.send(null);
                 if (req.status == 200) {
-                    console.log('SUCCESS')
+                    console.log(req.response)
+                    document.getElementById(`votes${movieID}`).innerHTML = req.response
                 }
             }
         </script>  
