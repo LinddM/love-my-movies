@@ -1,4 +1,4 @@
-FROM node:10.8.0-alpine
+FROM node:10
 
 WORKDIR /movies-project
 
@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 3000
 
-RUN node index.js
+CMD [ "node", "index.js" ]
