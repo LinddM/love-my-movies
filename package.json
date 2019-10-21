@@ -4,6 +4,7 @@
   "description": "Uni project",
   "main": "app.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,9 +18,10 @@
   },
   "homepage": "https://github.com/LinddM/love-my-movies#readme",
   "dependencies": {
+    "axios": "^0.19.0",
+    "express": "4.17.1",
     "jquery": "3.4.1",
-    "owl.carousel": "2.3.4",
-    "redis": "2.8.0",
-    "xmlhttprequest": "1.8.0"
+    "mustache": "^3.1.0",
+    "redis": "2.8.0"
   }
 }
