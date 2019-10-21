@@ -14,9 +14,20 @@
                     nav: true
                 });
             });
+            const host = 'localhost'
+            const port = 3000
+            function vote(movieID, q) {
+                var req = new XMLHttpRequest();
+                req.open('PATCH', `http://${host}:${port}/movie/${movieID}/${q}`, false); 
+                req.send(null);
+                if (req.status == 200) {
+                    console.log('SUCCESS')
+                }
+            }
         </script>  
     </head>
     <body>
+        mega test
         <div class="owl-carousel">
             {{{cards}}}
         </div>

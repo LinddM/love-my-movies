@@ -5,8 +5,9 @@
         <h5 class="card-title">{{title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         <p class="card-text">{{overview}}</p>
-        <a href="#" class="card-link upvote">⬆️</a>
-        <a href="#" class="card-link downvote">⬇️</a>
+        <a onclick="vote('{{id}}', 1)" class="card-link upvote">⬆️</a>
+        {{votes}}
+        <a onclick="vote('{{id}}', -1)" class="card-link downvote">⬇️</a>
     </div>
 </div>
 {{/movies}}
