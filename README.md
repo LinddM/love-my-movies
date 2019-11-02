@@ -47,23 +47,15 @@ The app will look like this:
 
 # Usage
 
-> How to run the app
+> Fill this with your instructions on how to run your app.
 
 ```bash
-# Just run this commands in your terminal
+# IT MUST RUN VIA DOCKER
+# example 1
+docker run -it -p 8080:8080 your-image/love-my-movies:1.20
 
-## redis container
-docker pull redis
-docker run -d --name redisDev -p 6379:6379 redis
-
-## application container
-docker pull lindseymaite/love-my-movies:2.1
-docker run -it -p 3000:3000 lindseymaite/love-my-movies:2.1
-
-
-Then, try localhost:3000 on your browser
-
-# and you get everything done
+# example 2
+docker-compose up
 
 ```
 
@@ -112,15 +104,15 @@ Which gave me [trending_movies.json](trending_movies.json)
 # Not Extras, but required (MUST)
 
 - [ ] Use Flask as backend (for now)
-- [x] Use Redis as the counter DB (incr/decr vote_count)
+- [ ] Use Redis as the counter DB (incr/decr vote_count)
 - [ ] Use Redis to store any details or additional info for the movies (JSON respond)
 - [ ] Use Redis as a cache.
-- [x] CI/CD (you can use GithubActions (beta) / Gitlab CI /Travis/ Circle CI)
-- [x] Dockerfile with a valid docker build & push to a valid Docker Hub repository.
-- [x] A good html/css layout of your own.
+- [ ] CI/CD (you can use GithubActions (beta) / Gitlab CI /Travis/ Circle CI)
+- [ ] Dockerfile with a valid docker build & push to a valid Docker Hub repository.
+- [ ] A good html/css layout of your own.
 - [ ] Modularize everything with files and functions.
 - [ ] Use javascript to "Click and show more details of the movie"
-- [x] IT WILL NOT RUN under python, but Docker, you must provide under the [README's Usage](#usage) how to run it using Docker commands
+- [ ] IT WILL NOT RUN under python, but Docker, you must provide under the [README's Usage](#usage) how to run it using Docker commands
 
 
 

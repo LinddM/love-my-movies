@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Test </title>  
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel = "stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <script src="js/owl.carousel.min.js"></script>
+<head>
+    <title>Love my movies</title>
 
-        <script>
-            $(document).ready(function(){
-                $(".owl-carousel").owlCarousel({
-                    nav: true
-                });
+    <link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css')}}">
+
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static',  filename='js/owl.carousel.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                nav: true
             });
-            const host = 'localhost'
-            const port = 3000
-            function vote(movieID, q) {
-                const req = new XMLHttpRequest();
-                req.open('PATCH', `http://${host}:${port}/movie/${movieID}/${q}`, false); 
-                req.send(null);
-                if (req.status == 200) {
-                    console.log(req.response)
-                    document.getElementById(`votes${movieID}`).innerHTML = req.response
-                }
-            }
-        </script>  
-    </head>
-    <body>
-        <h1>Discover Movies</h1>
-        <br/>
-        <div class="owl-carousel">
-            {{{cards}}}
-        </div>
-    </body>
+        });
+    </script>
+</head>
+
+<body>
+    <!--- Modularize this-->
+    <h1>Discover Movies</h1>  
+    <div id = 'discover' class='owl-carousel'>
+        {% for movie in discover['results'] %}
+            {% with movie = movie %}
+                {% include 'card.html' %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+    <br/>
+    <h1>Trending Movies</h1>
+    <div id = 'trending'  class = 'owl-carousel'>
+        {% for movie in trending['results'] %}
+            {% with movie = movie %}
+                {% include 'card.html' %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+</body>
 </html>

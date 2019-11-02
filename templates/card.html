@@ -1,13 +1,8 @@
-{{#movies}}
 <div class="card" style="width: 18rem;">
-    <img src="http://image.tmdb.org/t/p/w185/{{poster_path}}" class="card-img-top">
+    <img src="http://image.tmdb.org/t/p/w185/{{movie['poster_path']}}" class="card-img-top">
     <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{release_date}}</h6>
-        <p class="card-text">{{overview}}</p>
-        <a onclick="vote('{{id}}', 1)" class="card-link upvote">⬆️</a>
-        <span id="votes{{id}}"></span>
-        <a onclick="vote('{{id}}', -1)" class="card-link downvote">⬇️</a>
+        <h5 class="card-title">{{movie['title']}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{movie['release_date']}}</h6>
+        <p class="card-text">{{movie['overview']}}</p>
     </div>
 </div>
-{{/movies}}
