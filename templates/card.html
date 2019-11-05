@@ -1,4 +1,5 @@
 <div class="card">
+    <link rel="stylesheet" href="{{url_for('static', filename='js/assets.js')}}">
     <img src="http://image.tmdb.org/t/p/w185/{{movie['poster_path']}}" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{movie['title']}}</h5>
@@ -7,16 +8,11 @@
         {% if movie['overview']|length >= 20 %}
             {% set littleOverview = movie['overview'][:25]%}
             <p class="card-text">{{littleOverview}}...</p>
-        {% endif%}
-        <script>
-            function vote(movie, v) {
-                
-            }
-        </script>
+        {% endif %}
         <div>
-            <a onclick="vote({{movie}}, 1)" class="card-link upvote">⬆️</a>
+            <button onclick="vote()" class="card-link upvote">⬆️</button>
                 {{movie['vote_count']}}
-            <a onclick="vote({{movie}}, -1)" class="card-link downvote">⬇️</a>
+            <button onclick="vote()" class="card-link downvote">⬇️</button>
         </div>
     </div>
 </div>
