@@ -8,8 +8,15 @@
             {% set littleOverview = movie['overview'][:25]%}
             <p class="card-text">{{littleOverview}}...</p>
         {% endif%}
-    </div>
-    <div>
-        Vote
+        <script>
+            function vote(movie, v) {
+                
+            }
+        </script>
+        <div>
+            <a onclick="vote({{movie}}, 1)" class="card-link upvote">⬆️</a>
+                {{movie['vote_count']}}
+            <a onclick="vote({{movie}}, -1)" class="card-link downvote">⬇️</a>
+        </div>
     </div>
 </div>
