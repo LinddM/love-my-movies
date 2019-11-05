@@ -1,0 +1,37 @@
+/* Laptop display */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) {
+    body{
+        background-color: #F0F3F4 ;
+    }
+    h1{
+        text-align: center;
+        margin: 1%;
+    }
+    h2{
+        margin: 3%;
+        padding-top: 3%;
+    }
+    .owl-carousel{
+        margin: 3%;
+    }
+    .card{
+        width: 60%;
+        height: auto;
+        padding: 1%;
+    }
+    .container{
+        background-color: white;
+    }
+    .owl-nav{
+        display: none;
+    }
+  }
+
+  /* IPad display*/
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) {
+
+}

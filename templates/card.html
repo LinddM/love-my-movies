@@ -1,8 +1,15 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
     <img src="http://image.tmdb.org/t/p/w185/{{movie['poster_path']}}" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{movie['title']}}</h5>
+        <!--- Ver tamaño del titulo tambien -->
         <h6 class="card-subtitle mb-2 text-muted">{{movie['release_date']}}</h6>
-        <p class="card-text">{{movie['overview']}}</p>
+        {% if movie['overview']|length >= 20 %}
+            {% set littleOverview = movie['overview'][:25]%}
+            <p class="card-text">{{littleOverview}}...</p>
+        {% endif%}
+    </div>
+    <div>
+        Vote
     </div>
 </div>

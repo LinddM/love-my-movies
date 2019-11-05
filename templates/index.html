@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css')}}">
-    <<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 
     <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
     <script src="{{url_for('static',  filename='js/owl.carousel.min.js')}}"></script>
@@ -19,23 +19,26 @@
 </head>
 
 <body>
-    <!--- Modularize this-->
-    <h1>Discover Movies</h1>  
-    <div id = 'discover' class='owl-carousel'>
-        {% for movie in discover['results'] %}
-            {% with movie = movie %}
-                {% include 'card.html' %}
-            {% endwith %}
-        {% endfor %}
-    </div>
-    <br/>
-    <h1>Trending Movies</h1>
-    <div id = 'trending'  class = 'owl-carousel'>
-        {% for movie in trending['results'] %}
-            {% with movie = movie %}
-                {% include 'card.html' %}
-            {% endwith %}
-        {% endfor %}
+    <h1>Love my Movies</h1>
+    <div class="container">
+        <!--- Modularize this-->
+        <h2>Discover Movies</h2>  
+        <div id = 'discover' class='owl-carousel'>
+            {% for movie in discover['results'] %}
+                {% with movie = movie %}
+                    {% include 'card.html' %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+        <br/>
+        <h2>Trending Movies</h2>
+        <div id = 'trending'  class = 'owl-carousel'>
+            {% for movie in trending['results'] %}
+                {% with movie = movie %}
+                    {% include 'card.html' %}
+                {% endwith %}
+            {% endfor %}
+        </div>
     </div>
 
 </body>
