@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Love my movies</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
@@ -15,6 +14,16 @@
                 nav: true
             });
         });
+        const host = 'localhost'
+        const port = 5000
+        function vote(movieID, q) {
+            const req = new XMLHttpRequest();
+            req.open('PATCH', `http://${host}:${port}/${movieID}/${q}`, false); 
+            req.send(null);
+            if (req.status == 200) {
+                console.log(req.response)
+            }
+        }
     </script>
     
 </head>

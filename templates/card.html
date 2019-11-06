@@ -1,5 +1,4 @@
 <div class="card">
-    <link rel="stylesheet" href="{{url_for('static', filename='js/assets.js')}}">
     <img src="http://image.tmdb.org/t/p/w185/{{movie['poster_path']}}" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{movie['title']}}</h5>
@@ -10,9 +9,9 @@
             <p class="card-text">{{littleOverview}}...</p>
         {% endif %}
         <div>
-            <button onclick="vote()" class="card-link upvote">⬆️</button>
+            <button onclick="vote('{{movie['title']}}',1)" class="card-link upvote">⬆️</button>
                 {{movie['vote_count']}}
-            <button onclick="vote()" class="card-link downvote">⬇️</button>
+            <button onclick="vote('{{movie['title']}}',-1)" class="card-link downvote">⬇️</button>
         </div>
     </div>
 </div>
