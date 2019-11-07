@@ -10,7 +10,7 @@
         {% endif %}
         <div>
             <button onclick="vote('{{movie['title']}}',1)" class="card-link upvote">⬆️</button>
-                {{movie['vote_count']}}
+                <a id = 'votes{{movie["title"]}}'> {{movie['vote_count']}} </a>
             <button onclick="vote('{{movie['title']}}',-1)" class="card-link downvote">⬇️</button>
         </div>
     </div>

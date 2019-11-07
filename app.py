@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify
 import requests
 import redis
 
@@ -22,6 +22,14 @@ for movie in discover['results']:
 for movie in trending['results']:
     client.hmset(movie['title'], {'date' : movie['release_date'],'overview' : movie['overview'], 'vote' : movie['vote_count']})
 
+
+@app.route('/<string:id>/<string:q>')
+def profile(id, q):
+    votes = str(client.hget(id, 'vote'))[2:-1]
+    client.hset(id, 'vote', int(votes) + int(q))
+    newVotes = str(int(votes) + int(q))
+    return newVotes
+    #return jsonify({"votes": int(votes) + int(q), "success": True})
 
 @app.route('/')
 def index():
