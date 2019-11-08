@@ -4,6 +4,6 @@ WORKDIR /movies-project
 
 COPY . /movies-project
 
-RUN pip requirements.txt
+RUN pip install -r requirements.txt
 
 CMD [ "python", "app.py" ]
