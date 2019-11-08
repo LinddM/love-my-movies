@@ -27,8 +27,7 @@ for movie in trending['results']:
 def profile(id, q):
     votes = str(client.hget(id, 'vote'))[2:-1]
     client.hset(id, 'vote', int(votes) + int(q))
-    newVotes = str(int(votes) + int(q))
-    return newVotes
+    return str(int(votes) + int(q))
     #return jsonify({"votes": int(votes) + int(q), "success": True})
 
 @app.route('/')

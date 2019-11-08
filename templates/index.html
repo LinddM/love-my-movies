@@ -18,11 +18,11 @@
         const port = 5000
         function vote(movieID, q) {
             const req = new XMLHttpRequest();
-            req.open('PATCH', `http://${host}:${port}/${movieID}/${q}`, false); 
+            req.open('GET', `http://${host}:${port}/${movieID}/${q}`, false); 
             req.send(null);
             if (req.status == 200) {
-                console.log(req.response)
-                //document.getElementById(`votes${movieID}`).innerHTML = req.response
+                //console.log(req.response)
+                document.getElementById(`${movieID}`).innerHTML = req.response
             }
         }
     </script>
