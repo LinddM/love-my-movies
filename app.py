@@ -14,7 +14,7 @@ trending_info = requests.get(trending_url)
 trending = trending_info.json()
 
 # redis stuff
-client = redis.StrictRedis(host='192.168.99.100', port=6379)
+client = redis.StrictRedis(host='localhost', port=6379)
 
 for movie in discover['results']:
     client.hmset(movie['title'], {'date' : movie['release_date'],'overview' : movie['overview'], 'vote' : movie['vote_count']})
